@@ -9,10 +9,22 @@
         android:id="@+id/startFragment"
         android:name="com.team8.seqr.startFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_severFragment"
+            app:destination="@id/severFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_clientFragment"
+            app:destination="@id/clientFragment" />
+    </fragment>
     <fragment
         android:id="@+id/severFragment"
         android:name="com.team8.seqr.severFragment"
         android:label="fragment_sever"
         tools:layout="@layout/fragment_sever" />
+    <fragment
+        android:id="@+id/clientFragment"
+        android:name="com.team8.seqr.clientFragment"
+        android:label="fragment_client"
+        tools:layout="@layout/fragment_client" />
 </navigation>

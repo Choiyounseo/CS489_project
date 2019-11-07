@@ -35,6 +35,7 @@
             android:layout_width="240dp"
             android:layout_height="75dp"
             android:layout_marginBottom="30sp"
+            android:onClick="sndOnClick"
             android:text="Sender"
             android:textSize="24sp" />
 
