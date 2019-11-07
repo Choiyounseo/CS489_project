@@ -1,0 +1,14 @@
+SeQR/*.iml
+SeQR/.gradle
+SeQR/local.properties
+SeQR/.idea/caches
+SeQR/.idea/libraries
+SeQR/.idea/modules.xml
+SeQR/.idea/workspace.xml
+SeQR/.idea/navEditor.xml
+SeQR/.idea/assetWizardSettings.xml
+SeQR/.DS_Store
+SeQR/build
+SeQR/captures
+SeQR/.externalNativeBuild
+SeQR/.cxx
