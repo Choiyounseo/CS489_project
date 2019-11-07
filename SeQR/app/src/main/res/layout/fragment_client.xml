@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".clientFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,5 +15,13 @@
         android:gravity="center"
         android:text="Receiver"
         android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="136dp"
+        android:layout_height="122dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/logo" />
+
 
 </FrameLayout>
