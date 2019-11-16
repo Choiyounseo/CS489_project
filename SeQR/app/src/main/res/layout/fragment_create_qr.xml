@@ -17,6 +17,13 @@
         android:textSize="30sp" />
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/qrcode"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="136dp"
         android:layout_height="122dp"
