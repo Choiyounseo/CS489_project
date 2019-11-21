@@ -10,9 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 
 public class severFragment extends Fragment {
+    NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,4 +28,21 @@ public class severFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+
+        Button button_add_content = getView().findViewById(R.id.btn_add_content);
+
+        button_add_content.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Toast.makeText(getActivity(), "Create Content", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.action_severFragment_to_createContent);
+            }
+        });
+    }
+
+
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Server"
+        android:text="Sender"
         android:textSize="30sp" />
 
     <ImageView
@@ -21,5 +22,16 @@
         android:layout_height="122dp"
         android:layout_gravity="bottom|right"
         android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btn_add_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="100dp"
+        android:background="#E2F3B0B0"
+        android:text="+"
+        android:textSize="30sp" />
 
 </FrameLayout>

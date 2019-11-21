@@ -6,9 +6,12 @@ import androidx.navigation.NavController;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import androidx.fragment.app.*;
+
 
 public class MainActivity extends AppCompatActivity {
     NavController navController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +23,7 @@ public class MainActivity extends AppCompatActivity {
 //        navController.navigate(R.id.action_startFragment_to_severFragment);
 
     //}
+
+
 
 }
