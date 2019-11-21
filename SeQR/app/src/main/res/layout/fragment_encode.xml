@@ -29,6 +29,12 @@
                 android:layout_height="wrap_content"
                 android:text="Generated Private Key: " />
 
+            <TextView
+                android:id="@+id/secret_key_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Generated Secret Key: " />
+
             <EditText
                 android:id="@+id/input_text"
                 android:layout_width="match_parent"
@@ -38,10 +44,16 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/btn_encode_text"
+                android:id="@+id/btn_encode_asymmetric"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Encode!" />
+                android:text="Encode with asymmetric key" />
+
+            <Button
+                android:id="@+id/btn_encode_symmetric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encode with symmetric key" />
 
             <TextView
                 android:id="@+id/encoded_text"
