@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_startFragment_to_scanQR"
             app:destination="@id/scanQRFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_encodeFragment"
+            app:destination="@id/encodeFragment" />
     </fragment>
     <fragment
         android:id="@+id/severFragment"
@@ -43,4 +46,9 @@
         android:name="com.team8.seqr.scanQR"
         android:label="fragment_scan_qr"
         tools:layout="@layout/fragment_scan_qr" />
+    <fragment
+        android:id="@+id/encodeFragment"
+        android:name="com.team8.seqr.encodeFragment"
+        android:label="fragment_encode"
+        tools:layout="@layout/fragment_encode" />
 </navigation>
