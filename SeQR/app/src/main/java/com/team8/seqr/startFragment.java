@@ -37,7 +37,7 @@ public class startFragment extends Fragment {
 
         Button createQR_btn = getView().findViewById(R.id.btn_createQR);
         Button scanQR_btn = getView().findViewById(R.id.btn_scanQR);
-
+        Button encode_btn = getView().findViewById(R.id.btn_encode);
 
         // Click event for Sender
         button_snd.setOnClickListener(new View.OnClickListener(){
@@ -67,6 +67,11 @@ public class startFragment extends Fragment {
             }
         });
 
+        encode_btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                navController.navigate(R.id.action_startFragment_to_encodeFragment);
+            }
+        });
 
     }
 

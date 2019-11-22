@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -29,7 +31,16 @@ public class scanQR extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        new IntentIntegrator(getActivity()).initiateScan();
+        Button scan_btn = getView().findViewById(R.id.btn_initiate_scan);
+
+        scan_btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                IntentIntegrator qrScan = new IntentIntegrator(getActivity());
+                qrScan.setOrientationLocked(true); // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경됩니다.
+                qrScan.setPrompt("Scanning!");
+                qrScan.forSupportFragment(scanQR.this).initiateScan();
+            }
+        });
     }
 
     @Override
@@ -42,6 +53,8 @@ public class scanQR extends Fragment {
             } else {
                 Toast.makeText(getActivity(), "Scanned: "+ result.getContents(), Toast.LENGTH_LONG).show();
                 // TODO
+                TextView result_view = getView().findViewById(R.id.qr_code_result_view);
+                result_view.setText("Result: " + result.getContents());
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
