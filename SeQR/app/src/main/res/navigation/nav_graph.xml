@@ -17,12 +17,6 @@
             android:id="@+id/action_startFragment_to_clientFragment"
             app:destination="@id/clientFragment" />
         <action
-            android:id="@+id/action_startFragment_to_createQR"
-            app:destination="@id/createQRFragment" />
-        <action
-            android:id="@+id/action_startFragment_to_scanQR"
-            app:destination="@id/scanQRFragment" />
-        <action
             android:id="@+id/action_startFragment_to_encodeFragment"
             app:destination="@id/encodeFragment" />
     </fragment>
@@ -30,22 +24,23 @@
         android:id="@+id/severFragment"
         android:name="com.team8.seqr.severFragment"
         android:label="fragment_sever"
-        tools:layout="@layout/fragment_sever" />
+        tools:layout="@layout/fragment_sever" >
+    </fragment>
     <fragment
         android:id="@+id/clientFragment"
         android:name="com.team8.seqr.clientFragment"
         android:label="fragment_client"
         tools:layout="@layout/fragment_client" />
     <fragment
-        android:id="@+id/createQRFragment"
-        android:name="com.team8.seqr.createQR"
-        android:label="fragment_create_qr"
-        tools:layout="@layout/fragment_create_qr" />
+        android:id="@+id/createinfo"
+        android:name="com.team8.seqr.createInfo"
+        android:label="fragment_create_info"
+        tools:layout="@layout/fragment_create_info" />
     <fragment
-        android:id="@+id/scanQRFragment"
-        android:name="com.team8.seqr.scanQR"
-        android:label="fragment_scan_qr"
-        tools:layout="@layout/fragment_scan_qr" />
+        android:id="@+id/createUrl"
+        android:name="com.team8.seqr.createUrl"
+        android:label="fragment_create_url"
+        tools:layout="@layout/fragment_create_url" />
     <fragment
         android:id="@+id/encodeFragment"
         android:name="com.team8.seqr.encodeFragment"
