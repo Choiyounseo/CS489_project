@@ -38,6 +38,8 @@
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:hint="Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,6 +51,8 @@
                     android:id="@+id/tv_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:hint="Phone Number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +64,8 @@
                     android:id="@+id/tv_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:hint="E-mail" />
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -48,5 +48,4 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/logo" />
 
-
 </FrameLayout>
