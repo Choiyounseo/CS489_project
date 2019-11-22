@@ -7,15 +7,6 @@
     android:background="#FFFFFF"
     tools:context=".severFragment">
 
-    <TextView
-        android:id="@+id/tv_Server"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="Sender"
-        android:textSize="30sp" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="136dp"
@@ -23,15 +14,20 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/logo" />
 
-    <Button
-        android:id="@+id/btn_add_content"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="100dp"
-        android:background="#E2F3B0B0"
-        android:text="+"
-        android:textSize="30sp" />
+        app:tabGravity="center"
+        app:tabMode="fixed"
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorPrimary"/>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

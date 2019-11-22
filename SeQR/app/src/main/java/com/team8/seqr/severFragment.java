@@ -12,13 +12,27 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import androidx.viewpager.widget.ViewPager;
+
+import android.app.Fragment.*;
+import android.app.FragmentController.*;
+
+
+import com.google.android.material.tabs.TabLayout;
 
 public class severFragment extends Fragment {
     NavController navController;
+
+    private TabLayout mTablayout;
+    private ViewPager viewPager;
+    private Context mContext;
+    private TabPagerAdapter mContentPagerAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,19 +44,39 @@ public class severFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
-        Button button_add_content = getView().findViewById(R.id.btn_add_content);
+        viewPager = (ViewPager) getView().findViewById(R.id.vp_main);
+        mTablayout = (TabLayout) getView().findViewById(R.id.tb_main);
+        mContext = getActivity().getApplicationContext();
 
-        button_add_content.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                // Toast.makeText(getActivity(), "Create Content", Toast.LENGTH_SHORT).show();
-                navController.navigate(R.id.action_severFragment_to_createContent);
+        mTablayout.addTab(mTablayout.newTab().setText("Information"));
+        // mTablayout.addTab(mTablayout.newTab().setText("URL"));
+        // mTablayout.addTab(mTablayout.newTab().setText("File"));
+
+        mContentPagerAdapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), mTablayout.getTabCount());
+
+        viewPager.setAdapter(mContentPagerAdapter);
+
+
+        mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
-    }
 
+    }
 
 }
