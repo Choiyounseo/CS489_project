@@ -7,21 +7,46 @@
     tools:context=".createQR">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_CreateQR"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="CreateQR"
-        android:textSize="30sp" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/qrcode"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_CreateQR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="CreateQR"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/qr_input_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter a messege to encode"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btn_encode_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encode!" />
+
+            <ImageView
+                android:id="@+id/qrcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView"
