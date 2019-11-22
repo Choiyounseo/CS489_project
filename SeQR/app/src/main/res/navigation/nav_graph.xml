@@ -17,12 +17,6 @@
             android:id="@+id/action_startFragment_to_clientFragment"
             app:destination="@id/clientFragment" />
         <action
-            android:id="@+id/action_startFragment_to_createQR"
-            app:destination="@id/createQRFragment" />
-        <action
-            android:id="@+id/action_startFragment_to_scanQR"
-            app:destination="@id/scanQRFragment" />
-        <action
             android:id="@+id/action_startFragment_to_encodeFragment"
             app:destination="@id/encodeFragment" />
     </fragment>
@@ -37,16 +31,6 @@
         android:name="com.team8.seqr.clientFragment"
         android:label="fragment_client"
         tools:layout="@layout/fragment_client" />
-    <fragment
-        android:id="@+id/createQRFragment"
-        android:name="com.team8.seqr.createQR"
-        android:label="fragment_create_qr"
-        tools:layout="@layout/fragment_create_qr" />
-    <fragment
-        android:id="@+id/scanQRFragment"
-        android:name="com.team8.seqr.scanQR"
-        android:label="fragment_scan_qr"
-        tools:layout="@layout/fragment_scan_qr" />
     <fragment
         android:id="@+id/createinfo"
         android:name="com.team8.seqr.createInfo"

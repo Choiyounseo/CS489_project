@@ -34,9 +34,6 @@ public class startFragment extends Fragment {
 
         Button button_snd = getView().findViewById(R.id.btn_snd);
         Button button_rcv = getView().findViewById(R.id.btn_rcv);
-
-        Button createQR_btn = getView().findViewById(R.id.btn_createQR);
-        Button scanQR_btn = getView().findViewById(R.id.btn_scanQR);
         Button encode_btn = getView().findViewById(R.id.btn_encode);
 
         // Click event for Sender
@@ -52,18 +49,6 @@ public class startFragment extends Fragment {
             public void onClick(View v){
                 Toast.makeText(getActivity(), "Receiver Selected", Toast.LENGTH_SHORT).show();
                 navController.navigate(R.id.action_startFragment_to_clientFragment);
-            }
-        });
-
-        createQR_btn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                navController.navigate(R.id.action_startFragment_to_createQR);
-            }
-        });
-
-        scanQR_btn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                navController.navigate(R.id.action_startFragment_to_scanQR);
             }
         });
 
