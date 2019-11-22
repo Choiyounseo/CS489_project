@@ -7,14 +7,39 @@
     tools:context=".createQR">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_ScanQR"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="ScanQR"
-        android:textSize="30sp" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_ScanQR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="ScanQR"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_initiate_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Scan!" />
+
+            <TextView
+                android:id="@+id/qr_code_result_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Result: " />
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView"
