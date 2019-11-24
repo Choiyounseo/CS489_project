@@ -47,7 +47,7 @@ public class createInfo extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        navController = Navigation.findNavController(view); // ???
+        navController = Navigation.findNavController(view);
         qrcodeIv = getView().findViewById(R.id.created_qrcode);
         Button button_finish = getView().findViewById(R.id.btn_finish);
 

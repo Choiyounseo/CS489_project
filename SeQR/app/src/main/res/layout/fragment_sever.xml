@@ -7,12 +7,12 @@
     android:background="#FFFFFF"
     tools:context=".severFragment">
 
-    <ImageView
+    <!-- <ImageView
         android:id="@+id/imageView"
         android:layout_width="136dp"
         android:layout_height="122dp"
         android:layout_gravity="bottom|right"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo" /> -->
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_main"
