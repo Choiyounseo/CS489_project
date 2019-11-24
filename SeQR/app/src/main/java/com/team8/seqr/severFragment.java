@@ -50,15 +50,14 @@ public class severFragment extends Fragment {
         viewPager = (ViewPager) getView().findViewById(R.id.vp_main);
         mTablayout = (TabLayout) getView().findViewById(R.id.tb_main);
         mContext = getActivity().getApplicationContext();
-
-        mTablayout.addTab(mTablayout.newTab().setText("Information"));
-        // mTablayout.addTab(mTablayout.newTab().setText("URL"));
-        // mTablayout.addTab(mTablayout.newTab().setText("File"));
+        
+        mTablayout.addTab(mTablayout.newTab().setText("Tab1"));
+        mTablayout.addTab(mTablayout.newTab().setText("Tab2"));
+        mTablayout.addTab(mTablayout.newTab().setText("Tab3"));
 
         mContentPagerAdapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), mTablayout.getTabCount());
 
         viewPager.setAdapter(mContentPagerAdapter);
-
 
         mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

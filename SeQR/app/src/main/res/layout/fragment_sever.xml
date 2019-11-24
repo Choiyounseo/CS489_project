@@ -14,20 +14,19 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/logo" />
 
-    <com.google.android.material.tabs.TabLayout
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
         android:id="@+id/tb_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabGravity="center"
+        android:layout_gravity="top"
         app:tabMode="fixed"
         app:tabTextColor="#000000"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabIndicatorColor="@color/colorPrimary"/>
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    </androidx.viewpager.widget.ViewPager>
 
 </FrameLayout>

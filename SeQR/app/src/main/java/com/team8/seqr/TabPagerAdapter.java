@@ -13,6 +13,7 @@ import com.team8.seqr.createUrl;
 public class TabPagerAdapter  extends FragmentStatePagerAdapter {
 
     // Count number of tabs
+    private String[] tabTitles = new String[]{"Information", "URL", "File"};
     private int tabCount;
     public FragmentManager fragmentManager;
 
@@ -21,6 +22,12 @@ public class TabPagerAdapter  extends FragmentStatePagerAdapter {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
         this.tabCount = tabCount;
+    }
+
+    // need to override tab title : to use ViewPager with TabLayout
+    @Override
+    public CharSequence getPageTitle(int position) {
+      return tabTitles[position];
     }
 
     @Override
