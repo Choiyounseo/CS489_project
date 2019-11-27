@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -31,8 +32,7 @@ public class SeQRServer extends SeQR {
     @Override
     public void startConnection() {
         super.startConnection();
-        sendPublicKey();
-        //navController.navigate(R.id.action_seQRServer_to_severFragment);
+        navController.navigate(R.id.action_seQRServer_to_severFragment);
     }
 
     // STEP 1: Send public key to SeQRClient1
@@ -50,7 +50,7 @@ public class SeQRServer extends SeQR {
 
     // STEP 2: Receive secret key from SeQRClient1, decoding it using private key
     public void receiveSecretKey() {
-
+        receiveQRCode();
     }
 
     @Override
@@ -60,6 +60,7 @@ public class SeQRServer extends SeQR {
                 try {
                     secretKey = encryptor.decryptWithPrivateKey(result, privateKey);
                     Toast.makeText(getActivity(), "Secret Key: "+ secretKey, Toast.LENGTH_LONG).show();
+                    secret_key_view.setText("Received Secret Key: " + secretKey);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -90,6 +91,20 @@ public class SeQRServer extends SeQR {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        public_key_view.setText("Generated Public Key: " + publicKey);
 
+        step1_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendPublicKey();
+            }
+        });
+
+        step2_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                receiveSecretKey();
+            }
+        });
     }
 }

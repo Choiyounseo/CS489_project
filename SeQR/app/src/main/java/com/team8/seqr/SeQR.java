@@ -27,6 +27,10 @@ import org.json.JSONObject;
 
 public class SeQR extends Fragment {
 
+    protected Button step1_btn;
+    protected Button step2_btn;
+    protected TextView public_key_view;
+    protected TextView secret_key_view;
     protected ImageView qrcodeIv;
     protected NavController navController;
 
@@ -43,10 +47,16 @@ public class SeQR extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        step1_btn = getView().findViewById(R.id.btn_step1);
+        step2_btn = getView().findViewById(R.id.btn_step2);
+        public_key_view = getView().findViewById(R.id.public_key_view);
+        secret_key_view = getView().findViewById(R.id.secret_key_view);
+        qrcodeIv = getView().findViewById(R.id.created_qrcode);
+
         navController = Navigation.findNavController(view);
 
         Button start_btn = getView().findViewById(R.id.btn_start_connection);
-        qrcodeIv = getView().findViewById(R.id.created_qrcode);
+
         start_btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 startConnection();
@@ -87,7 +97,7 @@ public class SeQR extends Fragment {
     public void sendQRCode(String message) {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,400,400);
+            BitMatrix bitMatrix = multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,300,300);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrcodeIv.setImageBitmap(bitmap);

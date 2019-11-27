@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -32,8 +33,7 @@ public class SeQRClient extends SeQR {
     @Override
     public void startConnection() {
         super.startConnection();
-        receivePublicKey();
-        //navController.navigate(R.id.action_seQRClient_to_severFragment);
+        navController.navigate(R.id.action_seQRClient_to_severFragment);
     }
 
     // STEP 1: Receive public key from SeQRServer1
@@ -70,7 +70,8 @@ public class SeQRClient extends SeQR {
             case 1: // STEP 1
                 publicKey = result;
                 Toast.makeText(getActivity(), "Public Key: "+ publicKey, Toast.LENGTH_LONG).show();
-                sendSecretKey(); // STEP 2
+                public_key_view.setText("Received Public Key: " + publicKey);
+                //sendSecretKey(); // STEP 2
                 break;
             case 3: // STEP 3
                 try {
@@ -97,7 +98,21 @@ public class SeQRClient extends SeQR {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        secret_key_view.setText("Generated Secret Key: " + secretKey);
 
+        step1_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                receivePublicKey();
+            }
+        });
+
+        step2_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendSecretKey();
+            }
+        });
     }
 
 }
