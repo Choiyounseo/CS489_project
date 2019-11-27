@@ -11,14 +11,14 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_severFragment"
-            app:destination="@id/severFragment" />
-        <action
-            android:id="@+id/action_startFragment_to_clientFragment"
-            app:destination="@id/clientFragment" />
-        <action
             android:id="@+id/action_startFragment_to_encodeFragment"
             app:destination="@id/encodeFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_seQRClient"
+            app:destination="@id/seQRClient" />
+        <action
+            android:id="@+id/action_startFragment_to_seQRServer"
+            app:destination="@id/seQRServer" />
     </fragment>
     <fragment
         android:id="@+id/severFragment"
@@ -46,4 +46,22 @@
         android:name="com.team8.seqr.encodeFragment"
         android:label="fragment_encode"
         tools:layout="@layout/fragment_encode" />
+    <fragment
+        android:id="@+id/seQRClient"
+        android:name="com.team8.seqr.SeQRClient"
+        android:label="fragment_se_qrclient"
+        tools:layout="@layout/fragment_se_qrclient" >
+        <action
+            android:id="@+id/action_seQRClient_to_severFragment"
+            app:destination="@id/severFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seQRServer"
+        android:name="com.team8.seqr.SeQRServer"
+        android:label="fragment_se_qrserver"
+        tools:layout="@layout/fragment_se_qrserver" >
+        <action
+            android:id="@+id/action_seQRServer_to_severFragment"
+            app:destination="@id/severFragment" />
+    </fragment>
 </navigation>

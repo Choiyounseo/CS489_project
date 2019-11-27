@@ -18,15 +18,16 @@
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tb_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:tabMode="fixed"
-        app:tabTextColor="#000000"
-        app:tabSelectedTextColor="@color/colorPrimary"
-        app:tabIndicatorColor="@color/colorPrimary"/>
+            android:id="@+id/tb_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="#000000" />
     </androidx.viewpager.widget.ViewPager>
 
 </FrameLayout>

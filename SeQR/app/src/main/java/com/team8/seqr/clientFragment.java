@@ -18,6 +18,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 
 public class clientFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

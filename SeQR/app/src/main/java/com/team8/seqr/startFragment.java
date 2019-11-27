@@ -40,7 +40,7 @@ public class startFragment extends Fragment {
         button_snd.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Toast.makeText(getActivity(), "Sender Selected", Toast.LENGTH_SHORT).show();
-                navController.navigate(R.id.action_startFragment_to_severFragment);
+                navController.navigate(R.id.action_startFragment_to_seQRServer);
             }
         });
 
@@ -48,7 +48,7 @@ public class startFragment extends Fragment {
         button_rcv.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Toast.makeText(getActivity(), "Receiver Selected", Toast.LENGTH_SHORT).show();
-                navController.navigate(R.id.action_startFragment_to_clientFragment);
+                navController.navigate(R.id.action_startFragment_to_seQRClient);
             }
         });
 
