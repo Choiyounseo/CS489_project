@@ -19,6 +19,13 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class clientFragment extends Fragment {
 
+    private String secretKey;
+    private Encryptor encryptor;
+
+    public clientFragment() {
+        encryptor = new Encryptor();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,16 +39,25 @@ public class clientFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        secretKey = getArguments().getString("secretKey");
+        Toast.makeText(getActivity(), "Secret Key: "+ secretKey, Toast.LENGTH_LONG).show();
+
         Button scan_btn = getView().findViewById(R.id.btn_initiate_scan);
 
         scan_btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                IntentIntegrator qrScan = new IntentIntegrator(getActivity());
-                qrScan.setOrientationLocked(true); // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경됩니다.
-                qrScan.setPrompt("Scanning!");
-                qrScan.forSupportFragment(clientFragment.this).initiateScan();
+                receiveQRCode();
             }
         });
+    }
+
+    public void receiveQRCode() {
+        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(this);
+        integrator.setOrientationLocked(false); // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경됩니다.
+        integrator.setPrompt("Scanning!");
+        integrator.setCameraId(1); // Use front camera to scan
+        integrator.setBeepEnabled(true);
+        integrator.initiateScan();
     }
 
     @Override
@@ -52,10 +68,18 @@ public class clientFragment extends Fragment {
                 Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
                 // TODO
             } else {
-                Toast.makeText(getActivity(), "Scanned: "+ result.getContents(), Toast.LENGTH_LONG).show();
+                String encodedMessage = result.getContents();
+                Toast.makeText(getActivity(), "Scanned: "+ encodedMessage, Toast.LENGTH_LONG).show();
                 // TODO
                 TextView result_view = getView().findViewById(R.id.qr_code_result_view);
-                result_view.setText("Result: " + result.getContents());
+                try {
+                    String decodedMessage = encryptor.decryptWithSecretKey(encodedMessage, secretKey);
+                    result_view.setText("Result: " + decodedMessage);
+                }
+                catch (Exception e) {
+                    Toast.makeText(getActivity(), "Received QR Code is not properly encrypted!", Toast.LENGTH_LONG).show();
+                }
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

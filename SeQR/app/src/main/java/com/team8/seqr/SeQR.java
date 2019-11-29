@@ -34,6 +34,13 @@ public class SeQR extends Fragment {
     protected ImageView qrcodeIv;
     protected NavController navController;
 
+    protected enum CurrentState {
+        STEP1,
+        STEP2,
+        STEP3
+    }
+    protected CurrentState state = CurrentState.STEP1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,8 +97,19 @@ public class SeQR extends Fragment {
 
     }
 
-    public void startConnection() {
-
+    public boolean startConnection() {
+        switch (state) {
+            case STEP1:
+                Toast.makeText(getActivity(), "Complete Step 1 first!", Toast.LENGTH_LONG).show();
+                return false;
+            case STEP2:
+                Toast.makeText(getActivity(), "Complete Step 2 first!", Toast.LENGTH_LONG).show();
+                return false;
+            case STEP3:
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void sendQRCode(String message) {
@@ -114,4 +132,5 @@ public class SeQR extends Fragment {
         integrator.setBeepEnabled(true);
         integrator.initiateScan();
     }
+
 }

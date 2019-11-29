@@ -31,9 +31,14 @@ public class SeQRClient extends SeQR {
     }
 
     @Override
-    public void startConnection() {
-        super.startConnection();
-        navController.navigate(R.id.action_seQRClient_to_severFragment);
+    public boolean startConnection() {
+        if (!super.startConnection()) {
+            return false;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("secretKey", secretKey);
+        navController.navigate(R.id.action_seQRClient_to_clientFragment, bundle);
+        return true;
     }
 
     // STEP 1: Receive public key from SeQRServer1
@@ -47,9 +52,10 @@ public class SeQRClient extends SeQR {
             String encryptedSecretKey = encryptor.encryptWithPublicKey(secretKey, publicKey);
             try {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("stepCode", 1);
+                jsonObject.put("stepCode", 2);
                 jsonObject.put("message", encryptedSecretKey);
                 sendQRCode(jsonObject.toString());
+                state = CurrentState.STEP3;
             }
             catch (JSONException e) {
                 e.printStackTrace();
@@ -71,6 +77,7 @@ public class SeQRClient extends SeQR {
                 publicKey = result;
                 Toast.makeText(getActivity(), "Public Key: "+ publicKey, Toast.LENGTH_LONG).show();
                 public_key_view.setText("Received Public Key: " + publicKey);
+                state = CurrentState.STEP2;
                 //sendSecretKey(); // STEP 2
                 break;
             case 3: // STEP 3

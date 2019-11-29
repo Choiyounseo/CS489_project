@@ -23,6 +23,8 @@ public class SeQRServer extends SeQR {
     private String privateKey;
     private String secretKey;
 
+
+
     public SeQRServer() {
         encryptor = new Encryptor();
         publicKey = encryptor.getPublicKey();
@@ -30,9 +32,14 @@ public class SeQRServer extends SeQR {
     }
 
     @Override
-    public void startConnection() {
-        super.startConnection();
-        navController.navigate(R.id.action_seQRServer_to_severFragment);
+    public boolean startConnection() {
+        if (!super.startConnection()) {
+            return false;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("secretKey", secretKey);
+        navController.navigate(R.id.action_seQRServer_to_severFragment, bundle);
+        return true;
     }
 
     // STEP 1: Send public key to SeQRClient1
@@ -42,6 +49,7 @@ public class SeQRServer extends SeQR {
             jsonObject.put("stepCode", 1);
             jsonObject.put("message", publicKey);
             sendQRCode(jsonObject.toString());
+            state = CurrentState.STEP2;
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -61,9 +69,10 @@ public class SeQRServer extends SeQR {
                     secretKey = encryptor.decryptWithPrivateKey(result, privateKey);
                     Toast.makeText(getActivity(), "Secret Key: "+ secretKey, Toast.LENGTH_LONG).show();
                     secret_key_view.setText("Received Secret Key: " + secretKey);
+                    state = CurrentState.STEP3;
                 }
                 catch (Exception e) {
-                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "Received QR Code is not properly encrypted with public key!", Toast.LENGTH_LONG).show();
                 }
                 break;
             case 3: // STEP 3

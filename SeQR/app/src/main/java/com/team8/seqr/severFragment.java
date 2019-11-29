@@ -29,6 +29,8 @@ import com.google.android.material.tabs.TabLayout;
 public class severFragment extends Fragment {
     NavController navController;
 
+    private String secretKey;
+
     private TabLayout mTablayout;
     private ViewPager viewPager;
     private Context mContext;
@@ -39,13 +41,15 @@ public class severFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_sever, container, false);
-
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        secretKey = getArguments().getString("secretKey");
+        Toast.makeText(getActivity(), "Secret Key: "+ secretKey, Toast.LENGTH_LONG).show();
 
         viewPager = (ViewPager) getView().findViewById(R.id.vp_main);
         mTablayout = (TabLayout) getView().findViewById(R.id.tb_main);
