@@ -69,6 +69,12 @@
                     android:hint="E-mail" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
             <Button
                 android:id="@+id/btn_finish"
                 android:layout_width="wrap_content"

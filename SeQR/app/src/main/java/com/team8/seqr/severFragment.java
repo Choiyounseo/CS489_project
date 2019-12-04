@@ -49,11 +49,21 @@ public class severFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         secretKey = getArguments().getString("secretKey");
+
         Toast.makeText(getActivity(), "Secret Key: "+ secretKey, Toast.LENGTH_LONG).show();
 
         viewPager = (ViewPager) getView().findViewById(R.id.vp_main);
         mTablayout = (TabLayout) getView().findViewById(R.id.tb_main);
         mContext = getActivity().getApplicationContext();
+
+        Bundle bundle = new Bundle();
+        String secret_key = secretKey;
+        bundle.putString("secret_key", secret_key);
+
+        Fragment fraginfo = new Fragment();
+        fraginfo.setArguments(bundle);
+
+
         
         mTablayout.addTab(mTablayout.newTab().setText("Tab1"));
         mTablayout.addTab(mTablayout.newTab().setText("Tab2"));
@@ -81,5 +91,7 @@ public class severFragment extends Fragment {
         });
 
     }
+
+
 
 }

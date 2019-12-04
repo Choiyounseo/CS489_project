@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.app.Fragment.*;
 
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
 
@@ -54,6 +56,10 @@ public class createInfo extends Fragment {
         final TextInputEditText name_editText = getView().findViewById(R.id.tv_name);
         final  TextInputEditText phone_editText = getView().findViewById(R.id.tv_phone);
         final  TextInputEditText email_editText = getView().findViewById(R.id.tv_email);
+
+        String secret_key = this.getArguments().getString("secret_key");
+
+
 
         button_finish.setOnClickListener(new View.OnClickListener(){
             @Override
