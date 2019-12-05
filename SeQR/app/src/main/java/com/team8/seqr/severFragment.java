@@ -59,7 +59,7 @@ public class severFragment extends Fragment {
         mTablayout.addTab(mTablayout.newTab().setText("Tab2"));
         mTablayout.addTab(mTablayout.newTab().setText("Tab3"));
 
-        mContentPagerAdapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), mTablayout.getTabCount());
+        mContentPagerAdapter = new TabPagerAdapter(getActivity().getSupportFragmentManager(), mTablayout.getTabCount(), secretKey);
 
         viewPager.setAdapter(mContentPagerAdapter);
 
