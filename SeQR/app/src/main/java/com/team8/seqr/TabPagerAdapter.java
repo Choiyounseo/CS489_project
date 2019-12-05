@@ -36,20 +36,24 @@ public class TabPagerAdapter  extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+        Bundle args = new Bundle();
+
         // Returning the current tabs
         switch (position) {
             case 0:
                 createInfo createinfo = new createInfo();
-                Bundle args = new Bundle();
-                // Our object is just an string(secretKey) :-P
                 args.putString(createInfo.secretKey, secretKey);
                 createinfo.setArguments(args);
                 return createinfo;
             case 1:
                 createUrl createurl = new createUrl();
+                args.putString(createUrl.secretKey, secretKey);
+                createurl.setArguments(args);
                 return createurl;
             case 2:
                 createInfo createinfo3 = new createInfo();
+                args.putString(createInfo.secretKey, secretKey);
+                createinfo3.setArguments(args);
                 return createinfo3;
             default:
                 return null;
