@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import com.team8.seqr.createInfo;
 import com.team8.seqr.createUrl;
+import com.team8.seqr.createTextInfo;
 
 public class TabPagerAdapter  extends FragmentStatePagerAdapter {
 
@@ -51,10 +52,10 @@ public class TabPagerAdapter  extends FragmentStatePagerAdapter {
                 createurl.setArguments(args);
                 return createurl;
             case 2:
-                createInfo createinfo3 = new createInfo();
-                args.putString(createInfo.secretKey, secretKey);
-                createinfo3.setArguments(args);
-                return createinfo3;
+                createTextInfo createtextinfo = new createTextInfo();
+                args.putString(createTextInfo.secretKey, secretKey);
+                createtextinfo.setArguments(args);
+                return createtextinfo;
             default:
                 return null;
 
