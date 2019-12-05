@@ -6,76 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".SeQRClient">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="136dp"
-        android:layout_height="122dp"
-        android:layout_gravity="bottom|right"
-        android:src="@drawable/logo" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
-        <Button
-            android:id="@+id/btn_start_connection"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|top"
-            android:text="Receive QR Code"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_step1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 1: Receive Public Key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_connection" />
+            <Button
+                android:id="@+id/btn_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Step 1: Receive Public Key" />
 
-        <Button
-            android:id="@+id/btn_step2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 2: Send Secret Key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_step1" />
+            <Button
+                android:id="@+id/btn_step2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Step 2: Send Secret Key" />
 
-        <TextView
-            android:id="@+id/public_key_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Received Public Key: "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_step2" />
+            <Button
+                android:id="@+id/btn_start_connection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="Receive QR Code" />
 
-        <TextView
-            android:id="@+id/secret_key_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generated Secret Key: "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/public_key_view" />
+            <TextView
+                android:id="@+id/public_key_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Received Public Key: " />
 
-        <ImageView
-            android:id="@+id/created_qrcode"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/secret_key_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generated Secret Key: " />
+
+            <ImageView
+                android:id="@+id/created_qrcode"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
