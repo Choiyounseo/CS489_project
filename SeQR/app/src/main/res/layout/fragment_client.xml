@@ -41,11 +41,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="136dp"
-        android:layout_height="122dp"
-        android:layout_gravity="bottom|right"
-        android:src="@drawable/logo" />
-
 </FrameLayout>
