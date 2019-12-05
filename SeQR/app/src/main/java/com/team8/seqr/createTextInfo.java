@@ -33,8 +33,9 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class createTextInfo extends Fragment {
     NavController navController;
     private ImageView qrcodeIv;
+    private Encryptor encryptor;
 
-    public static final String secretKey = "object";
+    private String secretKey;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,9 +49,10 @@ public class createTextInfo extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        encryptor = new Encryptor();
         Bundle args = getArguments();
-        // args.getString(secretKey)
-        Toast.makeText(getActivity(), "secretKey is: " + args.getString(secretKey), Toast.LENGTH_SHORT).show();
+        secretKey = args.getString("secretKey");
+        Toast.makeText(getActivity(), "secretKey is: " + secretKey, Toast.LENGTH_SHORT).show();
 
         navController = Navigation.findNavController(view);
         qrcodeIv = getView().findViewById(R.id.created_qrcode);
@@ -73,15 +75,23 @@ public class createTextInfo extends Fragment {
                 else {
 
                     String data = text;
-                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     try {
-                        BitMatrix bitMatrix = multiFormatWriter.encode(data, BarcodeFormat.QR_CODE,400,400);
-                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                        qrcodeIv.setImageBitmap(bitmap);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        String encryptedData = encryptor.encryptWithSecretKey(data, secretKey);
+                        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                        try {
+                            BitMatrix bitMatrix = multiFormatWriter.encode(encryptedData, BarcodeFormat.QR_CODE,400,400);
+                            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                            qrcodeIv.setImageBitmap(bitmap);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(), "Encryption Failed!", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }
         });

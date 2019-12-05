@@ -33,8 +33,9 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class createUrl extends Fragment {
     NavController navController;
     private ImageView qrcodeIv;
+    private Encryptor encryptor;
 
-    public static final String secretKey = "object";
+    private String secretKey;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +50,7 @@ public class createUrl extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        encryptor = new Encryptor();
         navController = Navigation.findNavController(view);
         qrcodeIv = getView().findViewById(R.id.created_qrcode);
         Button button_finish = getView().findViewById(R.id.btn_finish);
@@ -56,8 +58,8 @@ public class createUrl extends Fragment {
         final TextInputEditText url_editText = getView().findViewById(R.id.tv_url);
 
         Bundle args = getArguments();
-        // args.getString(secretKey)
-        Toast.makeText(getActivity(), "secretKey is: " + args.getString(secretKey), Toast.LENGTH_SHORT).show();
+        secretKey = args.getString("secretKey");
+        Toast.makeText(getActivity(), "secretKey is: " + secretKey, Toast.LENGTH_SHORT).show();
 
         button_finish.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -69,14 +71,21 @@ public class createUrl extends Fragment {
                     Toast.makeText(getActivity(), "Please enter all fields", Toast.LENGTH_SHORT).show(); // 대신에 editview error option들 사용해도 괜찮을듯..
                 }
                 else {
-                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     try {
-                        BitMatrix bitMatrix = multiFormatWriter.encode(url, BarcodeFormat.QR_CODE,400,400);
-                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                        qrcodeIv.setImageBitmap(bitmap);
-                    } catch (Exception e) {
+                        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                        String encryptedData = encryptor.encryptWithSecretKey(url, secretKey);
+                        try {
+                            BitMatrix bitMatrix = multiFormatWriter.encode(encryptedData, BarcodeFormat.QR_CODE,400,400);
+                            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                            qrcodeIv.setImageBitmap(bitmap);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    catch (Exception e) {
                         e.printStackTrace();
+                        Toast.makeText(getActivity(), "Encryption Failed!", Toast.LENGTH_LONG).show();
                     }
                 }
             }

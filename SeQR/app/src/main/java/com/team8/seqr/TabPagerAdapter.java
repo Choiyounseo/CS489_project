@@ -43,17 +43,17 @@ public class TabPagerAdapter  extends FragmentStatePagerAdapter {
         switch (position) {
             case 0:
                 createInfo createinfo = new createInfo();
-                args.putString(createInfo.secretKey, secretKey);
+                args.putString("secretKey", secretKey);
                 createinfo.setArguments(args);
                 return createinfo;
             case 1:
                 createUrl createurl = new createUrl();
-                args.putString(createUrl.secretKey, secretKey);
+                args.putString("secretKey", secretKey);
                 createurl.setArguments(args);
                 return createurl;
             case 2:
                 createTextInfo createtextinfo = new createTextInfo();
-                args.putString(createTextInfo.secretKey, secretKey);
+                args.putString("secretKey", secretKey);
                 createtextinfo.setArguments(args);
                 return createtextinfo;
             default:
