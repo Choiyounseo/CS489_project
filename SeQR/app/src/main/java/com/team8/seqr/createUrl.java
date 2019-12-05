@@ -34,6 +34,8 @@ public class createUrl extends Fragment {
     NavController navController;
     private ImageView qrcodeIv;
 
+    public static final String secretKey = "object";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +54,10 @@ public class createUrl extends Fragment {
         Button button_finish = getView().findViewById(R.id.btn_finish);
 
         final TextInputEditText url_editText = getView().findViewById(R.id.tv_url);
+
+        Bundle args = getArguments();
+        // args.getString(secretKey)
+        Toast.makeText(getActivity(), "secretKey is: " + args.getString(secretKey), Toast.LENGTH_SHORT).show();
 
         button_finish.setOnClickListener(new View.OnClickListener(){
             @Override

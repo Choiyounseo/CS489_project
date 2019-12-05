@@ -34,18 +34,23 @@ public class createInfo extends Fragment {
     NavController navController;
     private ImageView qrcodeIv;
 
+    public static final String secretKey = "object";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_create_info, container, false);
-
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
+        Bundle args = getArguments();
+        // args.getString(secretKey)
+        Toast.makeText(getActivity(), "secretKey is: " + args.getString(secretKey), Toast.LENGTH_SHORT).show();
 
         navController = Navigation.findNavController(view);
         qrcodeIv = getView().findViewById(R.id.created_qrcode);
@@ -58,7 +63,8 @@ public class createInfo extends Fragment {
         button_finish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getActivity(), "Finish creating information", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Finish creating information", Toast.LENGTH_SHORT).
+                        show();
 
                 String name = name_editText.getText().toString();
                 String phone = phone_editText.getText().toString();
