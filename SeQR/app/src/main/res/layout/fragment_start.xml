@@ -9,54 +9,47 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="45dp"
-        android:layout_height="50dp"
-        android:layout_gravity="right"
-        android:src="@drawable/logo" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:layout_gravity="center">
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Welcome to SeQR"
-            android:textSize="40sp" />
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_snd"
-            android:layout_width="match_parent"
-            android:layout_height="330dp"
-            android:background="#88EBEBA2"
-            android:onClick="sndOnClick"
-            android:text="Sender"
-            android:textSize="36sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:src="@drawable/logo" />
 
-        <Button
-            android:id="@+id/btn_rcv"
-            android:layout_width="match_parent"
-            android:layout_height="330dp"
-            android:background="#99D7EC"
-            android:text="Receiver"
-            android:textSize="36sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Welcome to SeQR"
+                android:textSize="40sp" />
 
-        <!--
-        <Button
-            android:id="@+id/btn_encode"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:text="ENCODE"
-            android:visibility="invisible" />
-            -->
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_snd"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#88EBEBA2"
+                android:onClick="sndOnClick"
+                android:text="Sender"
+                android:textSize="36sp" />
+
+            <Button
+                android:id="@+id/btn_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#99D7EC"
+                android:text="Receiver"
+                android:textSize="36sp" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>
