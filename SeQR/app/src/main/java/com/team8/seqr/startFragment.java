@@ -34,7 +34,7 @@ public class startFragment extends Fragment {
 
         Button button_snd = getView().findViewById(R.id.btn_snd);
         Button button_rcv = getView().findViewById(R.id.btn_rcv);
-        Button encode_btn = getView().findViewById(R.id.btn_encode);
+        // Button encode_btn = getView().findViewById(R.id.btn_encode);
 
         // Click event for Sender
         button_snd.setOnClickListener(new View.OnClickListener(){
@@ -52,11 +52,14 @@ public class startFragment extends Fragment {
             }
         });
 
+        /*
         encode_btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 navController.navigate(R.id.action_startFragment_to_encodeFragment);
             }
         });
+
+         */
 
     }
 
