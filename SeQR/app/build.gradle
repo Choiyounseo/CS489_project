@@ -53,5 +53,5 @@ dependencies {
     implementation 'com.android.support:support-annotations:27.1.1'
 
     implementation 'org.json:json:20160810'
-    implementation 'com.android.support:percent:23.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 }
